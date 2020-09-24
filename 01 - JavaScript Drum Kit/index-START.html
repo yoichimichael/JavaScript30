@@ -58,8 +58,7 @@
     <audio data-key="76" src="sounds/tink.wav"></audio>
 
     <script>
-
-      function playSound (e) {
+      function playSoundAndTransform (e) {
                   // use querySelector for single element
                   // search for audio element with attribute selector
         const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
@@ -74,7 +73,7 @@
       }
 
       function removeTransition(e) {
-        if(e.propertyName !== 'transform') return; // skip it if it's not a transform
+        if(e.propertyName !== 'transform') return; // skip it if it's not a transform; since there are a lot of 'transitioned' events, this just picks one since they all apply to the same element
         
         this.classList.remove('playing');
       }
@@ -84,7 +83,7 @@
       // looping over each key to add an event listener
       keys.forEach(key => key.addEventListener('transitionend', removeTransition))
 
-      window.addEventListener('keydown', playSound);
+      window.addEventListener('keydown', playSoundAndTransform);
     </script>
 
       

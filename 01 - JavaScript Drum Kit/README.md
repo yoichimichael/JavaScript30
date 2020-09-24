@@ -1,4 +1,4 @@
-## JavaScript Drum Kit
+# JavaScript Drum Kit
 
 This is the first project in Wes Bos' 30-day JavaScript coding challenge. 
 
@@ -13,3 +13,7 @@ Each key on your computer keyboard has an associated code necessary for instruct
 ## ```data-key```
 
 ```data-``` attributes were designed to better standardize custom attributes. ```data-key``` is this project's custom attribute to associate the ```.wav``` files with elements.
+
+## ```transitionend``` Events
+
+This event 'listens' for a transition to have finished before performing a given function
