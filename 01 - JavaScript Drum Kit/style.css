@@ -32,6 +32,8 @@ body,html {
   text-shadow: 0 0 .5rem black;
 }
 
+
+/* style changes for key depressions by adding class in JS */
 .playing {
   transform: scale(1.1);
   border-color: #ffc600;
