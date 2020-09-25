@@ -43,5 +43,18 @@ body {
 	background: black;
 	position: absolute;
 	top: 50%;
+
+	/* default is 50%, the middle of the element, 100% is the 'end' */
+	transform-origin: 100%;
+
+	/* starts hands at 12 o'clock */
+	transform: rotate(90deg);
+
+	/* duration of each tick */
+	transition: all 0.05s;
+
+	/* creates realistic hand movements on each 'tick' */
+	transition-timing-function: cubic-bezier( 0.1, 2.7, 0.58, 1);
+
 }
 
