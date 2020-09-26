@@ -1,3 +1,23 @@
+
+/* highest-order element, similar to HTML; setting defaults */
+/* any settings taken from here will adjust based on its changes */
+:root {
+  --base: #ffc600;
+  --spacing: 10px;
+  --blur: 10px;
+}
+
+/* setting attributes based on variables defined in :root */
+img {
+  padding: var(--spacing);
+  background: var(--base);
+  filter: blur(var(--blur));
+}
+
+.hl {
+  color: var(--base);
+}
+
 /*
   misc styles, nothing to do with CSS variables
 */
