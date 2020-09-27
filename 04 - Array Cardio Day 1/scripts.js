@@ -55,10 +55,15 @@ const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`
 // refactor
 const sortedByBirthday = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
 
-console.table(sortedByBirthday)
+// console.table(sortedByBirthday)
 
 // Array.prototype.reduce()
 // 4. How many years did all the inventors live all together?
+
+const totalYearsLived = inventors.reduce((total, inventor) => {
+  return total += (inventor.passed - inventor.year)
+}, 0);
+console.log(totalYearsLived)
 
 // 5. Sort the inventors by years lived
 
