@@ -35,6 +35,8 @@ body {
   font-size: 20px;
   background-size: cover;
   background-position: center;
+
+  /* each flex item will be evenly distributed */
   flex: 1;
   display: flex;
   justify-content: center;
@@ -78,5 +80,9 @@ body {
 }
 
 .panel.open {
-  font-size: 40px;
+
+  /* will take 5x extra room than rest of flex items */
+  flex: 5;
+  
+  font-size: 40px; 
 }
