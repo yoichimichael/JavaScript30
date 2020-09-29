@@ -41,7 +41,7 @@ const areAllAdults = people.every(person => {
   return currentYear - person.year >= 19;
 });
 
-console.log(areAllAdults)
+// console.log(areAllAdults)
 
 // Array.prototype.find()
 // Find is like filter, but instead returns just the one you are looking for
@@ -56,8 +56,24 @@ console.log(areAllAdults)
 // refactor
 const matchedComment = comments.find(comment => comment.id === 823423);
 
-console.log(matchedId)
+// console.log(matchedId)
 
 // Array.prototype.findIndex()
 // Find the comment with this ID
+
+const index = comments.findIndex(comment => comment.id === 823423)
+
 // delete the comment with the ID of 823423
+
+comments.splice(index, 1)
+console.table(comments)
+
+// alternative
+// const newComments = [
+//   // a spread of elements from beginning until index
+//   ...comments.slice(0, index),
+//   // a spread of elements from one after index until end
+//   ...comments.slice(index + 1)
+// ]
+// console.table(newComments)
+
