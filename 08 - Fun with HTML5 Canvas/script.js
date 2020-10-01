@@ -12,6 +12,9 @@ ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 100;
 
+// adds a 'photoshop blend mode' type effect
+ctx.globalCompositeOperation = 'multiply';
+
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0; 
@@ -47,6 +50,7 @@ function draw(e) {
   }
   
   // lineWidth increases and decreases between 0 and 100
+  // hitting 100 or 0 flips the direction
   if(ctx.lineWidth >= 100 || ctx.lineWidth <= 1){
     direction = !direction; 
   }
