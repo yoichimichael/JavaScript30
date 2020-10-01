@@ -8,18 +8,22 @@ canvas.height = window.innerHeight;
 
 // set the way the brush behaves
 ctx.strokeStyle = '#BADA55';
-ctx.linJoin = 'round';
-ctx.linCap = 'round';
+ctx.lineJoin = 'round';
+ctx.lineCap = 'round';
+ctx.lineWidth = 100;
 
 let isDrawing = false;
 let lastX = 0;
 let lastY = 0; 
+let hue = 0;
 
 function draw(e) {
   if(!isDrawing) return; // will stop function from running if not mousedown
 
   // below code will only run on mousedown
   console.log(e)
+                  // hue, saturation, lightness  
+  ctx.strokeStyle = `hsl(${hue}, 100%, 50%)`
   ctx.beginPath();
 
   // starts from
@@ -29,11 +33,13 @@ function draw(e) {
   ctx.lineTo(e.offsetX, e.offsetY);
   ctx.stroke();
 
-
   // lastX = e.offsetX;
   // lastY = e.offsetY;
   // fancy ES6 syntax for above; 'destructuring an array'
   [lastX, lastY] = [e.offsetX, e.offsetY];
+
+  // increments hsl hue
+  hue++
 }
 
 // function inside draw will only run on mousedown
