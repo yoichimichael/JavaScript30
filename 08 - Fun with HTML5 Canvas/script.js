@@ -13,4 +13,14 @@ ctx.linCap = 'round';
 
 let isDrawing = false;
 let lastX = 0;
-let lastY = 0;
+let lastY = 0; 
+
+function draw(e) {
+  if(!isDrawing) return; // will stop function from running if not mousedown
+  console.log(e)
+}
+
+// function inside draw will only run on mousedown
+canvas.addEventListener('mousemove', draw);
+canvas.addEventListener('mousedown', () => isDrawing = true);
+canvas.addEventListener('mouseup', () => isDrawing = false);
