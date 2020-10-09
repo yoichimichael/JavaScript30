@@ -62,7 +62,7 @@ console.count('Yay!');
 console.count('Boo!');
 console.count('Yay!');
 
-console.clear();
+// console.clear();
 
 // timing
 console.time('fetching data');
