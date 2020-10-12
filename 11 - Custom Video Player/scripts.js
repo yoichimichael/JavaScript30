@@ -1,18 +1,22 @@
-/* ------------------------
-  Get our elements
-/* ------------------------
+/* 
+  ------------------------
+  Element variables
+  ------------------------
+*/
 
 const player = document.querySelector('.player');
 const video = player.querySelector('.viewer');
-const progress = player.querySelector('progress');
+const progress = player.querySelector('.progress');
 const progressBar = player.querySelector('.progress__filled');
 const toggle = player.querySelector('.toggle');
 const skipButtons = player.querySelectorAll('[data-skip]');
 const ranges = player.querySelectorAll('.player__slider');
 
-/* ------------------------
-  Build Our Functions
-/* ------------------------
+/*
+  ------------------------
+  Functions
+  ------------------------
+*/ 
 
 function togglePlay() {
   // there is no 'play' property, only 'paused'
@@ -46,15 +50,31 @@ function handleRangeUpdate() {
   video[this.name] = this.value
 }
 
-handle
+// creates progressbar animation
+function handleProgress() {
+  const percent = (video.currentTime / video.duration) * 100;
+  // updates flex-basis css property
+  progressBar.style.flexBasis = `${percent}%`;
+}
 
-/* ------------------------
-  hook up the event listeners
-/* ------------------------
+function scrub(e) {
+
+  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+  video.currentTime = scrubTime;
+  console.log(e)
+}
+
+/* 
+  ------------------------
+  event listeners
+  ------------------------
+*/
 
 video.addEventListener('click', togglePlay);
 video.addEventListener('play', updateButton);
 video.addEventListener('pause', updateButton);
+// 'progress' event is also an option
+video.addEventListener('timeupdate', handleProgress);
 
 toggle.addEventListener('click', togglePlay);
 skipButtons.forEach(button => button.addEventListener('click', skip));
@@ -62,3 +82,4 @@ skipButtons.forEach(button => button.addEventListener('click', skip));
 ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
 ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
 
+progress.addEventListener('click', scrub);
